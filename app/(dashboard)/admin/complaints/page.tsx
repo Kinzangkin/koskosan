@@ -4,9 +4,19 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { getComplaints } from "@/app/actions/complaint-actions";
 import { UpdateComplaintStatusSelect } from "@/components/complaints/UpdateComplaintStatusSelect";
+import { ComplaintStatus } from "@prisma/client";
+
+interface ComplaintWithDetails {
+  id: string;
+  title: string;
+  status: ComplaintStatus;
+  createdAt: Date;
+  user: { name: string };
+  room: { name: string };
+}
 
 export default async function AdminComplaintsPage() {
-  const complaints = await getComplaints();
+  const complaints: ComplaintWithDetails[] = await getComplaints() as any;
 
   return (
     <div className="space-y-6">
