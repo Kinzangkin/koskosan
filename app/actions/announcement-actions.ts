@@ -3,7 +3,17 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
-export async function getAnnouncements() {
+export interface Announcement {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: Date;
+  admin: {
+    name: string;
+  };
+}
+
+export async function getAnnouncements(): Promise<Announcement[]> {
   try {
     const announcements = await prisma.announcement.findMany({
       orderBy: {
@@ -15,7 +25,7 @@ export async function getAnnouncements() {
         }
       }
     });
-    return announcements;
+    return announcements as Announcement[];
   } catch (error) {
     console.error("Error fetching announcements:", error);
     return [];

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Megaphone, Edit } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { getAnnouncements } from "@/app/actions/announcement-actions";
+import { getAnnouncements, type Announcement } from "@/app/actions/announcement-actions";
 import { AddAnnouncementDialog } from "@/components/announcements/AddAnnouncementDialog";
 import { DeleteAnnouncementButton } from "@/components/announcements/DeleteAnnouncementButton";
 import { EditAnnouncementDialog } from "@/components/announcements/EditAnnouncementDialog";
@@ -25,7 +25,7 @@ export default async function AdminAnnouncementsPage() {
             No announcements found. Create one to notify your tenants.
           </div>
         ) : (
-          announcements.map((announcement) => (
+          announcements.map((announcement: Announcement) => (
             <Card key={announcement.id} className="rounded-[2rem] border-slate-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
               <div className="h-2 w-full bg-emerald-400"></div>
               <CardContent className="p-6">
