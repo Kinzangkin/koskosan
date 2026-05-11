@@ -53,7 +53,7 @@ export default async function AdminRoomsPage() {
                   </td>
                 </tr>
               ) : (
-                rooms.map((room) => (
+                (rooms as any[]).map((room: any) => (
                   <tr key={room.id} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-800">{room.name}</td>
                     <td className="px-6 py-4 text-slate-600">Rp {room.price.toLocaleString("id-ID")}</td>

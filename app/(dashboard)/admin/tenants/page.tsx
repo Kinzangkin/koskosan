@@ -54,8 +54,8 @@ export default async function AdminTenantsPage() {
                   </td>
                 </tr>
               ) : (
-                tenants.map((tenant) => {
-                  const activeBooking = tenant.bookings?.find(b => b.status === "ACTIVE");
+              (tenants as any[]).map((tenant: any) => {
+                  const activeBooking = tenant.bookings?.find((b: any) => b.status === "ACTIVE");
                   const hasBooking = !!activeBooking;
                   
                   return (

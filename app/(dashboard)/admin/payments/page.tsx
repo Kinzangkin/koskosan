@@ -34,7 +34,7 @@ export default async function AdminPaymentsPage() {
             Unpaid for {monthName} {currentYear} ({unpaidTenants.length})
           </h2>
           <div className="space-y-3">
-            {unpaidTenants.map((booking) => (
+            {(unpaidTenants as any[]).map((booking: any) => (
               <div key={booking.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-white p-4 rounded-2xl">
                 <div>
                   <p className="font-medium text-slate-800">{booking.user.name}</p>
@@ -85,7 +85,7 @@ export default async function AdminPaymentsPage() {
                   </td>
                 </tr>
               ) : (
-                payments.map((payment) => (
+                (payments as any[]).map((payment: any) => (
                   <tr key={payment.id} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-800">{payment.booking.user.name}</td>
                     <td className="px-6 py-4 text-slate-600">{payment.booking.room.name}</td>

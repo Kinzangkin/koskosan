@@ -43,7 +43,7 @@ export default async function TenantBillsPage() {
                   </td>
                 </tr>
               ) : (
-                payments.map((payment) => (
+                (payments as any[]).map((payment: any) => (
                   <tr key={payment.id} className="hover:bg-slate-50/50 transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-800">
                       {new Date(payment.year, payment.month - 1).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}

@@ -34,8 +34,8 @@ export default async function TenantDashboard() {
     include: { admin: { select: { name: true } } }
   });
 
-  const activeBooking = tenant?.bookings?.find(b => b.status === "ACTIVE");
-  const pendingBooking = tenant?.bookings?.find(b => b.status === "PENDING");
+  const activeBooking = tenant?.bookings?.find((b: any) => b.status === "ACTIVE");
+  const pendingBooking = tenant?.bookings?.find((b: any) => b.status === "PENDING");
   const displayBooking = activeBooking || pendingBooking;
 
   // Fetch all payments using our unified logic
@@ -46,7 +46,7 @@ export default async function TenantDashboard() {
   const currentMonth = now.getMonth() + 1;
   const currentYear = now.getFullYear();
   
-  const currentBill = payments.find(p => p.month === currentMonth && p.year === currentYear);
+  const currentBill = (payments as any[]).find((p: any) => p.month === currentMonth && p.year === currentYear);
 
   return (
     <div className="space-y-6">
@@ -184,7 +184,7 @@ export default async function TenantDashboard() {
             {announcements.length === 0 ? (
               <p className="text-slate-500 text-sm">No new announcements.</p>
             ) : (
-              announcements.map((ann) => (
+              (announcements as any[]).map((ann: any) => (
                 <div key={ann.id} className="p-4 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
                   <h3 className="font-bold text-slate-800 text-sm mb-1">{ann.title}</h3>
                   <p className="text-xs text-slate-500 mb-2 line-clamp-2">{ann.content}</p>

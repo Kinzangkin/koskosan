@@ -97,7 +97,7 @@ export default async function AdminDashboard() {
               Pending Booking Requests ({pendingBookings.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {pendingBookings.map((booking) => (
+              {(pendingBookings as any[]).map((booking: any) => (
                 <div key={booking.id} className="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm flex flex-col justify-between gap-4">
                   <div>
                     <p className="font-bold text-slate-800">{booking.user.name}</p>
@@ -161,7 +161,7 @@ export default async function AdminDashboard() {
           </div>
           
           <div className="space-y-3">
-            {recentRooms.map((room) => (
+            {(recentRooms as any[]).map((room: any) => (
               <div key={room.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors cursor-pointer group">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-slate-600 group-hover:text-emerald-600 transition-colors">
