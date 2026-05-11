@@ -1,7 +1,6 @@
 "use client";
 
 import { updateComplaintStatus } from "@/app/actions/complaint-actions";
-import { ComplaintStatus } from "@prisma/client";
 import { useState } from "react";
 
 interface Props {
@@ -14,7 +13,7 @@ export function UpdateComplaintStatusSelect({ id, currentStatus }: Props) {
 
   async function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     setLoading(true);
-    const newStatus = e.target.value as ComplaintStatus;
+    const newStatus = e.target.value as "NEW" | "IN_PROGRESS" | "DONE";
     const result = await updateComplaintStatus(id, newStatus);
     if (!result.success) {
       alert(result.error);

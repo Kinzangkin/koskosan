@@ -2,7 +2,6 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { ComplaintStatus } from "@prisma/client";
 
 export async function getComplaints() {
   try {
@@ -22,7 +21,7 @@ export async function getComplaints() {
   }
 }
 
-export async function updateComplaintStatus(id: string, status: ComplaintStatus) {
+export async function updateComplaintStatus(id: string, status: "NEW" | "IN_PROGRESS" | "DONE") {
   try {
     await prisma.complaint.update({
       where: { id },

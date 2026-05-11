@@ -4,12 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { getComplaints } from "@/app/actions/complaint-actions";
 import { UpdateComplaintStatusSelect } from "@/components/complaints/UpdateComplaintStatusSelect";
-import { ComplaintStatus } from "@prisma/client";
 
 interface ComplaintWithDetails {
   id: string;
   title: string;
-  status: ComplaintStatus;
+  status: "NEW" | "IN_PROGRESS" | "DONE";
   createdAt: Date;
   user: { name: string };
   room: { name: string };
