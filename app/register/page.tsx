@@ -27,7 +27,7 @@ export default function RegisterPage() {
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"></div>
         <div className="absolute bottom-12 left-12 right-12 text-white">
           <h2 className="text-4xl font-bold mb-4">Start Your Journey</h2>
-          <p className="text-lg text-emerald-50">Register now to book rooms effortlessly, track your tenancy, and experience seamless boarding house living.</p>
+          <p className="text-lg text-emerald-50">Register now to book rooms effortlessly, track your tenancy, and experience seamless boarding house  living.</p>
         </div>
       </div>
     </div>
