@@ -30,7 +30,7 @@ export default async function TenantComplaintsPage() {
               You haven't reported any issues yet.
             </div>
           ) : (
-            complaints.map((complaint) => (
+            (complaints as any[]).map((complaint: any) => (
               <div key={complaint.id} className="p-6 hover:bg-slate-50/50 transition-colors flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
                 <div className="flex gap-4 items-start">
                   <div className={`p-3 rounded-2xl ${
