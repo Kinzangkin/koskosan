@@ -103,7 +103,7 @@ export default async function RoomDetailPage({ params }: { params: { id: string 
 
             <h3 className="text-lg font-bold text-slate-800 mb-4">Facilities</h3>
             <div className="grid grid-cols-2 gap-y-3 mb-8">
-              {(room.facilities.length > 0 ? room.facilities : ["AC", "WiFi", "Kamar Mandi Dalam", "Lemari", "Meja Belajar"]).map((facility, idx) => (
+              {(room.facilities.length > 0 ? room.facilities : ["AC", "WiFi", "Kamar Mandi Dalam", "Lemari", "Meja Belajar"]).map((facility: any, idx: number) => (
                 <div key={idx} className="flex items-center gap-2 text-slate-600 text-sm">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                   <span>{facility}</span>

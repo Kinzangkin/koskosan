@@ -9,7 +9,7 @@ export default async function RoomsPage() {
   });
 
   // Map Prisma model to RoomCard props format
-  const rooms = dbRooms.map((r) => ({
+  const rooms = dbRooms.map((r: any) => ({
     id: r.id,
     name: r.name,
     address: r.floor ? `Floor ${r.floor}` : "Manado, Sulawesi Utara", // Fallback if no specific address field
@@ -28,7 +28,7 @@ export default async function RoomsPage() {
         <RoomFilter />
         
         <div className="flex-1 overflow-y-auto mt-6 pr-2 space-y-4 no-scrollbar">
-          {rooms.map(room => (
+          {rooms.map((room: any) => (
             <RoomCard key={room.id} room={room} />
           ))}
           {rooms.length === 0 && (
