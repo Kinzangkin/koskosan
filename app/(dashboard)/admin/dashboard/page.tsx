@@ -42,7 +42,7 @@ export default async function AdminDashboard() {
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const chartData = monthNames.map((name, index) => {
     const monthNum = index + 1;
-    const monthlyData = monthlyRevenue.find(m => m.month === monthNum);
+    const monthlyData = (monthlyRevenue as any[]).find((m: any) => m.month === monthNum);
     return {
       name,
       total: monthlyData?._sum.amount || 0
