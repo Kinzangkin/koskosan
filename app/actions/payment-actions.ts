@@ -111,7 +111,7 @@ export async function getTenantPayments(userId: string) {
     const currentYear = now.getFullYear();
 
     const hasCurrentPayment = booking.payments.some(
-      (p) => p.month === currentMonth && p.year === currentYear
+      (p: any) => p.month === currentMonth && p.year === currentYear
     );
 
     let payments = [...booking.payments];
